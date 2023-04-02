@@ -1,0 +1,10 @@
+cv2
+numpy
+os
+matplotlib
+time
+mediapipe
+scikit-learn
+scipy
+tensorflow
+pyautogui
