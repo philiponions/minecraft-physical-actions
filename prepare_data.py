@@ -4,40 +4,7 @@ import cv2
 import numpy as np
 import os
 import mediapipe as mp
-
-# Get the camera device
-cap = cv2.VideoCapture(0)
-
-# Actions that we try to detect
-actions = np.array(['run', 'punch', 'placeblock'])
-
-# Thirty videos worth of data
-no_sequences = 30
-
-# Videos are 30 frames in length
-sequence_length = 30
-
-mp_holistic = mp.solutions.holistic # Holistic model
-mp_drawing = mp.solutions.drawing_utils # Drawing utilities
-
-
-def draw_styled_landmarks(image, results):
-    mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
-        mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4),
-        mp_drawing.DrawingSpec(color=(121,44,250), thickness=2, circle_radius=2))
-    
-    mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
-        mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4),
-        mp_drawing.DrawingSpec(color=(121,44,250), thickness=2, circle_radius=2))
-    
-
-# Extracts landmark keypoints
-def extract_keypoints(results):
-
-    # Error handle if there are no landmarks in a hand just return an array of zeroes
-    lh = np.array([[res.x, res.y, res.z] for res in results.left_hand_landmarks.landmark]).flatten() if results.left_hand_landmarks else np.zeros(21*3)
-    rh = np.array([[res.x, res.y, res.z] for res in results.right_hand_landmarks.landmark]).flatten() if results.right_hand_landmarks else np.zeros(21*3)
-    return np.concatenate([lh, rh])
+from mediapipe_utils import *
 
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
     # While web cam is opened
