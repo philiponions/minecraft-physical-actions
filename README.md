@@ -1,5 +1,5 @@
 # minecraft-physical-actions
-I made a Python program that translates **physical** movements to **in-game** movements.
+I'm a Python program that translates **physical** movements to **in-game** movements.
 
 ![app_desc](https://user-images.githubusercontent.com/78581216/229394241-3614790b-d210-4205-a595-7359bd06b4f6.png)
 
@@ -9,6 +9,8 @@ The program is based off of Nicholas Renotte's **tensorflow** Action Detection m
 Link to tutorial: https://youtu.be/doDUihpj6ro
 
 I modified the code to prepare my own training set.
+
+**So far**, the program is clunky. The model ocasionally returns the wrong action detected and the implementation of invoking the correct actions still needs to be debugged to properly function. But we're getting there :)
 
 ## Functionality
 The main program loop turns on the user's webcam with cv2 and tracks hand movement using mediapipe holistic. It defines the layers of the tensorflow model and loads trained weights. Every 30 sequences of frames gets passed to the model to predict an action. If the results threshold is over 0.4, an action was detected. The action string then gets passed to a function that invokes the corresponding keyboard/mouse action via pyautogui.
