@@ -2,6 +2,9 @@
 I made a Python program that translates **physical** movements to **in-game** movements.
 
 The program is based off of Nicholas Renotte's **tensorflow** Action Detection model with LSTM layers
+
+Link to tutorial: https://www.youtube.com/watch?v=doDUihpj6ro&t=959s
+
 I modified the code to prepare my own training set.
 
 So far, the model is trained with the following actions:
