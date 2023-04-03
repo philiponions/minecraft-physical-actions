@@ -1,5 +1,5 @@
 # minecraft-physical-actions
-I'm a Python program that translates **physical** movements to **in-game** movements.
+I'm working on a Python program that translates **physical** movements to **in-game** movements.
 
 ![app_desc](https://user-images.githubusercontent.com/78581216/229394241-3614790b-d210-4205-a595-7359bd06b4f6.png)
 
