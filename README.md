@@ -11,7 +11,7 @@ Link to tutorial: https://youtu.be/doDUihpj6ro
 I modified the code to prepare my own training set.
 
 ## Functionality
-The main program loop turns on the user's webcam with cv2. It defines the layers of the tensorflow model and loads trained weights. Every 30 sequences of frames gets passed to the model to predict an action. If the results threshold is over 0.4, an action was detected which gets passed to a function that invokes the corresponding keyboard/mouse action via pyautogui.
+The main program loop turns on the user's webcam with cv2. It defines the layers of the tensorflow model and loads trained weights. Every 30 sequences of frames gets passed to the model to predict an action. If the results threshold is over 0.4, an action was detected. The action string then gets passed to a function that invokes the corresponding keyboard/mouse action via pyautogui.
 
 So far, the model is trained with the following actions:
 
