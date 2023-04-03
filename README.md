@@ -4,7 +4,7 @@ I'm working on a Python program that translates **physical** movements to **in-g
 ![app_desc](https://user-images.githubusercontent.com/78581216/229394241-3614790b-d210-4205-a595-7359bd06b4f6.png)
 
 
-The program is based off of Nicholas Renotte's **tensorflow** Action Detection model with LSTM layers
+The program is based off of Nicholas Renotte's **tensorflow** Action Detection model built with LSTM layers.
 
 Link to tutorial: https://youtu.be/doDUihpj6ro
 
