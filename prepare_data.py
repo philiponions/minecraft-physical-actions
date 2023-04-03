@@ -6,6 +6,15 @@ import os
 import mediapipe as mp
 from mediapipe_utils import *
 
+def prepare_folders():
+    for action in actions:
+        for sequence in range(no_sequences):
+            try:
+                os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
+            except: pass # If folders created just pass
+
+# prepare_folders() # uncomment this out if you haven't created the MP_Data folder yet
+
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
     # While web cam is opened
 
@@ -42,16 +51,6 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                 npy_path = os.path.join(DATA_PATH, action, str(sequence), str(frame_num))
                 np.save(npy_path, keypoints)
 
- 
-
                 # Break gracefully
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
-
-
-
-# for action in actions:
-#     for sequence in range(no_sequences):
-#         try:
-#             os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
-#         except: pass # If folders created just pass

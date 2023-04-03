@@ -72,28 +72,28 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         sequence.insert(0, keypoints)
         sequence = sequence[:30]
 
-        # action = prev_action
-        # if len(sequence) == 30:
-        #     res = model.predict(np.expand_dims(sequence, axis=0), verbose = 0)[0]
-        #     # print(actions[np.argmax(res)])
-        #     if res[np.argmax(res)] > threshold:
-        #         action = actions[np.argmax(res)]
+        action = prev_action
+        if len(sequence) == 30:
+            res = model.predict(np.expand_dims(sequence, axis=0), verbose = 0)[0]
+            # print(actions[np.argmax(res)])
+            if res[np.argmax(res)] > threshold:
+                action = actions[np.argmax(res)]
                 
-        #     else: 
-        #         action = "standby"
+            else: 
+                action = "standby"
 
-        #     # prev_action = gui_action(action, prev_action)
-        #     #     cv2.putText(image, actions[np.argmax(res)], (15, 50),
-        #     #                 cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
+            # prev_action = gui_action(action, prev_action)
+            #     cv2.putText(image, actions[np.argmax(res)], (15, 50),
+            #                 cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
                 
-        #     #     prev_action = gui_action(actions[np.argmax(res)], prev_action)
+            #     prev_action = gui_action(actions[np.argmax(res)], prev_action)
 
-        #     # else: 
-        #     #     cv2.putText(image, "standby", (15, 50),
-        #     #             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
+            # else: 
+            #     cv2.putText(image, "standby", (15, 50),
+            #             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
 
-        # cv2.putText(image, action, (15, 50),
-        #             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
+        cv2.putText(image, action, (15, 50),
+                    cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
 
         # prev_action = gui_action(action, prev_action)
         cv2.imshow('OpenCV Feed', image)
